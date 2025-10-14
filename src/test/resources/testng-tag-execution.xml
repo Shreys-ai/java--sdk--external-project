@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Tag-Based Test Execution" verbose="1" parallel="methods" thread-count="2">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+    <parameter name="baseUrl" value="http://localhost:3000"/>
+
+    <listeners>
+        <listener class-name="com.automation.listeners.TestListener"/>
+        <listener class-name="com.automation.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <!-- Execute Smoke Tests -->
+    <test name="Tag Execution - Smoke Tests" preserve-order="true">
+        <parameter name="testType" value="smoke-tests"/>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute Regression Tests -->
+    <test name="Tag Execution - Regression Tests" preserve-order="true">
+        <parameter name="testType" value="regression-tests"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute UI Tests -->
+    <test name="Tag Execution - UI Tests" preserve-order="true">
+        <parameter name="testType" value="ui-tests"/>
+        <groups>
+            <run>
+                <include name="ui"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute Critical Tests -->
+    <test name="Tag Execution - Critical Tests" preserve-order="true">
+        <parameter name="testType" value="critical-tests"/>
+        <groups>
+            <run>
+                <include name="critical"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute Management Tests (User, Product, Task) -->
+    <test name="Tag Execution - Management Tests" preserve-order="true">
+        <parameter name="testType" value="management-tests"/>
+        <groups>
+            <run>
+                <include name="user-management"/>
+                <include name="product-management"/>
+                <include name="task-management"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute CRUD Operations -->
+    <test name="Tag Execution - CRUD Operations" preserve-order="true">
+        <parameter name="testType" value="crud-operations"/>
+        <groups>
+            <run>
+                <include name="create"/>
+                <include name="update"/>
+                <include name="delete"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute Performance Tests -->
+    <test name="Tag Execution - Performance Tests" preserve-order="true">
+        <parameter name="testType" value="performance-tests"/>
+        <groups>
+            <run>
+                <include name="performance"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute Validation Tests -->
+    <test name="Tag Execution - Validation Tests" preserve-order="true">
+        <parameter name="testType" value="validation-tests"/>
+        <groups>
+            <run>
+                <include name="validation"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+    <!-- Execute Search Tests -->
+    <test name="Tag Execution - Search Tests" preserve-order="true">
+        <parameter name="testType" value="search-tests"/>
+        <groups>
+            <run>
+                <include name="search"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+</suite>

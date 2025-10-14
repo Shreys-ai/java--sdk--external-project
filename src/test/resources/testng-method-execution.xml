@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Method-Based Test Execution" verbose="1" parallel="methods" thread-count="2">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+    <parameter name="baseUrl" value="http://localhost:3000"/>
+
+    <listeners>
+        <listener class-name="com.automation.listeners.TestListener"/>
+        <listener class-name="com.automation.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <!-- Execute specific test methods - User Management Tests -->
+    <test name="Method Execution - User Management" preserve-order="true">
+        <parameter name="testType" value="user-management-methods"/>
+        <classes>
+            <class name="com.automation.tests.UserManagementTest">
+                <methods>
+                    <include name="testAddNewUserWithValidDetails"/>
+                    <include name="testDeleteUserFromList"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Execute specific test methods - Task Tests -->
+    <test name="Method Execution - Task Tests" preserve-order="true">
+        <parameter name="testType" value="task-methods"/>
+        <classes>
+            <class name="com.automation.tests.TaskManagementTest">
+                <methods>
+                    <include name="testCreateNewTaskWithAssignment"/>
+                    <include name="testCompleteExistingTask"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

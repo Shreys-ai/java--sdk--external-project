@@ -1,0 +1,35 @@
+userName: shreyasdhoke_Uhv0oZ
+accessKey: r9RqKkeiRxKpJi3aVW8p
+projectName: Fixed for package issue test selection
+buildName: Fixed for package issue test selection
+buildIdentifier: '#${BUILD_NUMBER}'
+platforms:
+  - os: Windows
+    osVersion: 10
+    browserName: Edge
+    browserVersion: latest
+
+parallelsPerPlatform: 20
+
+source: java:intellij:2.0.0-IC
+browserstackLocal: true
+debug: false
+networkLogs: false
+consoleLogs: errors
+
+testOrchestrationOptions:
+  runSmartSelection:
+    enabled: true
+    mode: 'relevantOnly'
+    source:
+      - '/Users/shreyasdhoke/Test Selection/Dev Repo-Test-Selection'
+
+
+# when pasing just source keyword then it's considering mono repo
+
+# With CLI shared by Jaydeep
+# source: 'test.json' -> when passing  then it's considering source path and showing details. Also, considering the latest one only.
+# source:  -> with this as well it's considering multi repo and calculation pr diff locally
+      # - '/Users/shreyasdhoke/Test Selection/Dev Repo-Test-Selection'
+# when source keyword is not passing then it's appearing it as null. and considering mono repo
+# when source keyword is only passing without using any path then it's consdering source key as [] and  pr diff is not calculating

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Automation Test Suite" verbose="1" parallel="methods" thread-count="3">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+    <parameter name="baseUrl" value="http://localhost:3000"/>
+
+    <listeners>
+        <listener class-name="com.automation.listeners.TestListener"/>
+        <listener class-name="com.automation.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <test name="Regression Tests" preserve-order="true">
+        <parameter name="testType" value="regression"/>
+        <packages>
+            <package name="com.automation.tests"/>
+        </packages>
+    </test>
+
+</suite>
